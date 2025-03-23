@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="SetOnList.h" />
     <ClInclude Include="SetOnNodeClass.h" />
+    <ClInclude Include="SetOnPrioriyQueue.h" />
+    <ClInclude Include="SetOnUnorderedSet.h" />
+    <ClInclude Include="SetOnVector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SetOnNodeClass.cpp" />
