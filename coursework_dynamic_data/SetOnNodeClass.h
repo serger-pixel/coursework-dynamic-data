@@ -38,4 +38,5 @@ public:
     SetOnNodeClass unionWith(SetOnNodeClass other);
     SetOnNodeClass difference(SetOnNodeClass other);
     SetOnNodeClass symmetricDifference(SetOnNodeClass other);
-}
+
+};
