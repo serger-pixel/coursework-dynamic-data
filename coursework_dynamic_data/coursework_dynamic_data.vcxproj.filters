@@ -21,7 +21,7 @@
     <ClInclude Include="SetOnList.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SetOnVector.h">
+    <ClInclude Include="SetOnSet.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SetOnUnorderedSet.h">
@@ -33,15 +33,18 @@
     <ClInclude Include="SetOnNode.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="table.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SetOnNodeClass.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="SetOnUnorderedSetcpp.cpp">
+    <ClCompile Include="SetOnUnorderedSet.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="SetOnVector.cpp">
+    <ClCompile Include="SetOnSet.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="SetOnPrioriyQueue.cpp">
@@ -55,6 +58,15 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="table.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.h">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

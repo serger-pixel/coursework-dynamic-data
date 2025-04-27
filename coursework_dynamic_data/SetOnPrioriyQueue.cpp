@@ -4,19 +4,27 @@
 
 // Конструктор по умолчанию
 SetOnPriorityQueue::SetOnPriorityQueue() {
+    _setPriorityQueue = std::priority_queue<int>();
 }
 
 // Конструктор с указанием количества элементов
-SetOnPriorityQueue::SetOnPriorityQueue(int cnt) {
-    for (int i = 1; i <= cnt; ++i) {
-        _setPriorityQueue.push(i);
+SetOnPriorityQueue::SetOnPriorityQueue(int cnt): SetOnPriorityQueue() {
+    for (int i = 0; i < cnt; ++i) {
+        int localMin = 0;
+        int localMax = cnt;
+        int value = (localMin + (std::rand() % (localMax - localMin + 1)));
+        add(value);
+        while (!contains(value)) {
+            value = (localMin + (std::rand() % (localMax - localMin + 1)));
+            add(value);
+        }
     }
 }
 
 // Деструктор
 SetOnPriorityQueue::~SetOnPriorityQueue() {
     while (!_setPriorityQueue.empty()) {
-        _setPriorityQueue.~priority_queue();
+        _setPriorityQueue.pop();
     }
 }
 
@@ -143,5 +151,5 @@ SetOnPriorityQueue SetOnPriorityQueue::difference(SetOnPriorityQueue other) {
 
 // Симметричная разность
 SetOnPriorityQueue SetOnPriorityQueue::symmetricDifference(SetOnPriorityQueue other) {
-    return (intersectWith(other)).difference(unionWith(other));
+    return (unionWith(other)).difference(intersectWith(other));
 }

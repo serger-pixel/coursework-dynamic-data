@@ -132,16 +132,20 @@
     <ClInclude Include="SetOnNode.h" />
     <ClInclude Include="SetOnPriorityQueue.h" />
     <ClInclude Include="SetOnUnorderedSet.h" />
-    <ClInclude Include="SetOnVector.h" />
+    <ClInclude Include="SetOnSet.h" />
+    <ClInclude Include="table.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Functions.h" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SetOnList.cpp" />
     <ClCompile Include="SetOnNode.cpp" />
     <ClCompile Include="SetOnNodeClass.cpp" />
     <ClCompile Include="SetOnPrioriyQueue.cpp" />
-    <ClCompile Include="SetOnUnorderedSetcpp.cpp" />
-    <ClCompile Include="SetOnVector.cpp" />
+    <ClCompile Include="SetOnUnorderedSet.cpp" />
+    <ClCompile Include="SetOnSet.cpp" />
+    <ClCompile Include="table.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

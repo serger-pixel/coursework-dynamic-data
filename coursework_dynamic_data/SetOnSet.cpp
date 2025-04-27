@@ -1,12 +1,13 @@
-#include "SetOnList.h"
+#include "SetOnSet.h"
+#include <random>
 
 // Конструктор по умолчанию
-SetOnList::SetOnList() {
-    _setList = std::list<int>();
+SetOnSet::SetOnSet() {
+    _set = std::set<int>();
 }
 
 // Конструктор с указанием количества элементов
-SetOnList::SetOnList(int cnt): SetOnList() {
+SetOnSet::SetOnSet(int cnt): SetOnSet() {
     for (int i = 0; i < cnt; ++i) {
         int localMin = 0;
         int localMax = cnt;
@@ -20,35 +21,33 @@ SetOnList::SetOnList(int cnt): SetOnList() {
 }
 
 // Деструктор
-SetOnList::~SetOnList() {
-    _setList.clear();
+SetOnSet::~SetOnSet() {
+    _set.clear();
 }
 
 // Проверка на пустоту
-bool SetOnList::isEmpty() {
-    return _setList.empty();
+bool SetOnSet::isEmpty() {
+    return _set.empty();
 }
 
 // Проверка наличия значения
-bool SetOnList::contains(int value) {
-    return std::find(_setList.begin(), _setList.end(), value) != _setList.end();
+bool SetOnSet::contains(int value) {
+    return _set.find(value) != _set.end();
 }
 
 // Добавление значения
-void SetOnList::add(int value) {
-    if (!contains(value)) { 
-        _setList.push_back(value);
-    }
+void SetOnSet::add(int value) {
+    _set.insert(value);
 }
 
 // Возвращает количество элементов
-int SetOnList::size() {
-    return _setList.size();
+int SetOnSet::size() {
+    return _set.size();
 }
 
 // Проверка подмножества
-bool SetOnList::isSubsetOf(SetOnList other) {
-    for (const int& elem : _setList) {
+bool SetOnSet::isSubsetOf(SetOnSet other) {
+    for (const int& elem : _set) {
         if (!other.contains(elem)) {
             return false;
         }
@@ -57,39 +56,42 @@ bool SetOnList::isSubsetOf(SetOnList other) {
 }
 
 // Приведение к строке
-std::string SetOnList::toString(std::string sep) {
+std::string SetOnSet::toString(std::string sep) {
     if (isEmpty()) {
         return "Множество пустое";
     }
     std::string result;
-    for (const int& elem : _setList) {
+    for (const int& elem : _set) {
         result += std::to_string(elem) + sep;
     }
-    result.pop_back(); 
+    result.pop_back();
     return result;
 }
 
 // Сравнение двух множеств
-bool SetOnList::equals(SetOnList other) {
+bool SetOnSet::equals(SetOnSet other) {
+    if (_set.size() != other.size()) {
+        return false;
+    }
     return isSubsetOf(other) && other.isSubsetOf(*this);
 }
 
 // Объединение
-SetOnList SetOnList::unionWith(SetOnList other) {
-    SetOnList result;
-    for (const int& elem : _setList) {
+SetOnSet SetOnSet::unionWith(SetOnSet other) {
+    SetOnSet result;
+    for (const int& elem : _set) {
         result.add(elem);
     }
-    for (const int& elem : other._setList) {
+    for (const int& elem : other._set) {
         result.add(elem);
     }
     return result;
 }
 
 // Пересечение
-SetOnList SetOnList::intersectWith(SetOnList other) {
-    SetOnList result;
-    for (const int& elem : _setList) {
+SetOnSet SetOnSet::intersectWith(SetOnSet other) {
+    SetOnSet result;
+    for (const int& elem : _set) {
         if (other.contains(elem)) {
             result.add(elem);
         }
@@ -98,9 +100,9 @@ SetOnList SetOnList::intersectWith(SetOnList other) {
 }
 
 // Разность
-SetOnList SetOnList::difference(SetOnList other) {
-    SetOnList result;
-    for (const int& elem : _setList) {
+SetOnSet SetOnSet::difference(SetOnSet other) {
+    SetOnSet result;
+    for (const int& elem : _set) {
         if (!other.contains(elem)) {
             result.add(elem);
         }
@@ -109,6 +111,6 @@ SetOnList SetOnList::difference(SetOnList other) {
 }
 
 // Симметричная разность
-SetOnList SetOnList::symmetricDifference(SetOnList other) {
+SetOnSet SetOnSet::symmetricDifference(SetOnSet other) {
     return (unionWith(other)).difference(intersectWith(other));
 }

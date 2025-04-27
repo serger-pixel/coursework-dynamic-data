@@ -1,8 +1,10 @@
 #include <iostream>
-#include <iomanip> // Для std::setw и std::setfill
+#include <iomanip>
+#include <windows.h>
 
 int main() {
     setlocale(LC_ALL, "");
+    SetConsoleTitle(L"Ermakov23VP2");
     // Функция для отрисовки горизонтальной линии
     auto drawHorizontalLine = [](int width) {
         for (int i = 0; i < width; ++i) {
@@ -30,11 +32,12 @@ int main() {
         };
 
     // Верхняя часть таблицы
-    std::cout << "Введите размер первого множества (целое от 100 до 100000):" << std::endl;
+    std::cout << "Введите размер А множества (целое от 100 до 100000):" << std::endl;
+    std::cout << "Введите размер В множества (целое от 100 до 100000):" << std::endl;
     drawHorizontalLine(180);
 
     // Заголовок таблицы
-    printRow("Операция", "Односвязный список", "Класс список", "Vector", "List", "unordered_set", "priority_set");
+    printRow("Операция", "Односвязный список", "Класс список", "Set", "List", "unordered_set", "priority_queue");
     drawHorizontalLine(180);
 
     // Тело таблицы
@@ -59,6 +62,5 @@ int main() {
     printRow("Разность B-A", "", "", "", "", "", "");
     drawHorizontalLine(180);
     printRow("Симметричная разность", "", "", "", "", "", "");
-
-    return 0;
+    system("pause");
 }

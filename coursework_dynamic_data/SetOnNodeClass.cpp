@@ -6,8 +6,17 @@ SetOnNodeClass::SetOnNodeClass() : head(nullptr) {};
 
 // Создание непустого множества 
 SetOnNodeClass::SetOnNodeClass(int cnt) {
-    for (int i = 1; i <= cnt; ++i) {
-        add(i);
+    head = nullptr;
+    int localMax = cnt;
+    int localMin = 0;
+    for (int i = 0; i < cnt; ++i) {
+        Node* temp = head;
+        int value = (localMin + (std::rand() % (localMax - localMin + 1)));
+        add(value);
+        while (temp == head) {
+            value = (localMin + (std::rand() % (localMax - localMin + 1)));
+            add(value);
+        }
     }
 }
 
@@ -136,5 +145,5 @@ SetOnNodeClass SetOnNodeClass::difference(SetOnNodeClass other) {
 
 // Симметричная разность
 SetOnNodeClass SetOnNodeClass::symmetricDifference(SetOnNodeClass other) {
-    return (intersectWith(other)).difference(unionWith(other));
+    return (unionWith(other)).difference(intersectWith(other));
 }

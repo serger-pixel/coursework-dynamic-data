@@ -1,4 +1,4 @@
-#include "SetOnList.h"
+#include "SetOnNode.h"
 #include <string>
 
 // Создание пустого множества
@@ -134,7 +134,5 @@ Node* differenceOf(Node* A, Node* B) {
 
 // Симметричная разность
 Node* symmetricDifference(Node* A, Node* B) {
-    Node* unionRes = unionOf(A, B);
-    Node* intersectRes = intersectOf(A, B);
-    return differenceOf(unionRes, intersectRes);
+    return differenceOf(intersectOf(A,B), unionOf(A,B));
 }

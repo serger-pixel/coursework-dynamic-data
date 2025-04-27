@@ -1,27 +1,26 @@
 #pragma once
-#pragma once
 #include <queue>
 #include <string>
 
 class SetOnPriorityQueue {
 private:
-    std::priority_queue<int> _setPriorityQueue; // Частное поле для хранения элементов
+    std::priority_queue<int> _setPriorityQueue; 
 
 public:
-    SetOnPriorityQueue(); // Конструктор по умолчанию
-    SetOnPriorityQueue(int cnt); // Конструктор с указанием количества элементов
-    ~SetOnPriorityQueue(); // Деструктор
+    SetOnPriorityQueue(); 
+    SetOnPriorityQueue(int cnt); 
+    ~SetOnPriorityQueue(); 
 
-    bool isEmpty(); // Проверка на пустоту
-    bool contains(int value); // Проверка наличия значения
-    void add(int value); // Добавление значения
-    int size(); // Возвращает количество элементов
+    bool isEmpty(); 
+    bool contains(int value); 
+    void add(int value); 
+    int size(); 
 
-    bool isSubsetOf(SetOnPriorityQueue other); // Проверка подмножества
-    std::string toString(std::string sep); // Приведение к строке
-    bool equals(SetOnPriorityQueue other); // Сравнение двух множеств
-    SetOnPriorityQueue unionWith(SetOnPriorityQueue other); // Объединение
-    SetOnPriorityQueue intersectWith(SetOnPriorityQueue other); // Пересечение
-    SetOnPriorityQueue difference(SetOnPriorityQueue other); // Разность
-    SetOnPriorityQueue symmetricDifference(SetOnPriorityQueue other); // Симметричная разность
+    bool isSubsetOf(SetOnPriorityQueue other); 
+    std::string toString(std::string sep); 
+    bool equals(SetOnPriorityQueue other); 
+    SetOnPriorityQueue unionWith(SetOnPriorityQueue other); 
+    SetOnPriorityQueue intersectWith(SetOnPriorityQueue other); 
+    SetOnPriorityQueue difference(SetOnPriorityQueue other); 
+    SetOnPriorityQueue symmetricDifference(SetOnPriorityQueue other); 
 };

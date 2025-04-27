@@ -3,18 +3,26 @@
 
 // Конструктор по умолчанию
 SetOnUnorderedSet::SetOnUnorderedSet() {
+    _setUnorderedSet = std::unordered_set<int>();
 }
 
 // Конструктор с указанием количества элементов
-SetOnUnorderedSet::SetOnUnorderedSet(int cnt) {
-    for (int i = 1; i <= cnt; ++i) {
-        _setUnorderedSet.insert(i);
+SetOnUnorderedSet::SetOnUnorderedSet(int cnt): SetOnUnorderedSet() {
+    for (int i = 0; i < cnt; ++i) {
+        int localMin = 0;
+        int localMax = cnt;
+        int value = (localMin + (std::rand() % (localMax - localMin + 1)));
+        add(value);
+        while (!contains(value)) {
+            value = (localMin + (std::rand() % (localMax - localMin + 1)));
+            add(value);
+        }
     }
 }
 
 // Деструктор
 SetOnUnorderedSet::~SetOnUnorderedSet() {
-    _setUnorderedSet.~unordered_set();
+    _setUnorderedSet.clear();
 }
 
 // Проверка на пустоту
@@ -104,5 +112,5 @@ SetOnUnorderedSet SetOnUnorderedSet::difference(SetOnUnorderedSet other) {
 
 // Симметричная разность
 SetOnUnorderedSet SetOnUnorderedSet::symmetricDifference(SetOnUnorderedSet other) {
-    return (intersectWith(other)).difference(unionWith(other));
+    return (unionWith(other)).difference(intersectWith(other));
 }

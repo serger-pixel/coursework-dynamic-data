@@ -4,23 +4,23 @@
 
 class SetOnList {
 private:
-    std::list<int> _setList; // Частное поле для хранения элементов
+    std::list<int> _setList;
 
 public:
-    SetOnList(); // Конструктор по умолчанию
-    SetOnList(int cnt); // Конструктор с указанием количества элементов
-    ~SetOnList(); //Деструктор
+    SetOnList();
+    SetOnList(int cnt);
+    ~SetOnList();
 
-    bool isEmpty() ; // Проверка на пустоту
-    bool contains(int value) ; // Проверка наличия значения
-    void add(int value); // Добавление значения
-    int size() ; // Возвращает количество элементов
+    bool isEmpty();
+    bool contains(int value);
+    void add(int value);
+    int size();
 
-    bool isSubsetOf( SetOnList other) ; // Проверка подмножества
-    std::string toString(std::string sep); // Приведение к строке
-    bool equals( SetOnList other) ; // Сравнение двух множеств
-    SetOnList unionWith( SetOnList other) ; // Объединение
-    SetOnList intersectWith( SetOnList other) ; // Пересечение
-    SetOnList difference( SetOnList other) ; // Разность
-    SetOnList symmetricDifference( SetOnList other) ; // Симметричная разность
+    bool isSubsetOf(SetOnList other);
+    std::string toString(std::string sep);
+    bool equals(SetOnList other);
+    SetOnList unionWith(SetOnList other);
+    SetOnList intersectWith(SetOnList other);
+    SetOnList difference(SetOnList other);
+    SetOnList symmetricDifference(SetOnList other);
 };
