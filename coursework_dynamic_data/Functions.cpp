@@ -88,5 +88,11 @@ void Functions::calculateTime(
 
  void Functions::printTable(int firstCnt, int secondCnt)
 {
-
+	 std::map<CollectionTypes, std::map<Operations, int>> firstTable;
+	 calculateTime(firstTable, List, SetOnList(firstCnt), SetOnList(secondCnt));
+	 calculateTime(firstTable, NodePtr, newSet(firstCnt), newSet(secondCnt));
+	 calculateTime(firstTable, NodeClass, SetOnNodeClass(firstCnt), SetOnNodeClass(secondCnt));
+	 calculateTime(firstTable, PrioriyQueue, SetOnPriorityQueue(firstCnt), SetOnPriorityQueue(secondCnt));
+	 calculateTime(firstTable, PrioriyQueue, SetOnSet(firstCnt), SetOnSet(secondCnt));
+	 calculateTime(firstTable, PrioriyQueue, SetOnUnorderedSet(firstCnt), SetOnUnorderedSet(secondCnt));
 }

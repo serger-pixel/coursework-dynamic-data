@@ -25,11 +25,11 @@ public:
 	const int WIDTH_LINE = 180;
 
 	static void printRow(Operations operation,
-		const int singleLinkedList,
-		const int classList,
-		const int vector,
-		const int list,
-		const int unorderedSet,
-		const int prioritySet);
+		const std::string singleLinkedList,
+		const std::string classList,
+		const std::string vector,
+		const std::string list,
+		const std::string unorderedSet,
+		const std::string prioritySet);
 	static void drawHorizontalLine(int width);
 };

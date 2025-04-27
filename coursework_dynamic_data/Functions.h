@@ -11,12 +11,12 @@
 #include "SetOnUnorderedSet.h"
 
 enum CollectionTypes{
-	SetOnList,
-	SetOnNode,
-	SetOnNodeClass,
-	SetOnPrioriyQueue,
-	SetOnSet,
-	SetOnUnorderedSetcpp
+	List,
+	NodePtr,
+	NodeClass,
+	PrioriyQueue,
+	Set,
+	UnorderedSet
 };
 
 class Functions {
