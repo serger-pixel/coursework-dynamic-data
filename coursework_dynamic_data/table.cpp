@@ -8,12 +8,12 @@ void table::drawHorizontalLine(int width) {
 }
 
 void table::printRow(Operations operation,
-    const std::string& singleLinkedList,
-    const std::string& classList,
-    const std::string& vector,
-    const std::string& list,
-    const std::string& unorderedSet,
-    const std::string& prioritySet) {
+    const int singleLinkedList,
+    const int classList,
+    const int vector,
+    const int list,
+    const int unorderedSet,
+    const int prioritySet) {
         std::cout << "| " << std::setw(22) << std::left << operation;
         std::cout << " | " << std::setw(22) << std::left << singleLinkedList;
         std::cout << " | " << std::setw(22) << std::left << classList;

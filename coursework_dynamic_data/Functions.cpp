@@ -4,26 +4,89 @@
 //¬ычисление времени операций дл€ класса
 template <typename T>
 void Functions::calculateTime(
-	std::map<CollectionTypes, std::map<Operations, std::string>>& table, CollectionTypes type,
-	T firstCollections, T secondCollection)
+	std::map<CollectionTypes, std::map<Operations, int>>& table, CollectionTypes type,
+	T firstCollection, T secondCollection)
 	{
-		auto run = std::high_resolution_clock::now();
-		int result = stop - std::high_resolution_clock::now();
-
-		switch(type)
-		{
-			case(SetOnList)
-			{
-				T.size();
-				int result = stop - std::high_resolution_clock::now();
-			}
-		}
+		std::map<Operations, int> column;
+		auto start = std::chrono::high_resolution_clock::now();
+		T local = new T(firstCollection.size());
+		column[CREATE] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.size();
+		column[SIZE_SET] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.isSubsetOf(firstCollection);
+		column[SUBSET_THIS] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.isSubsetOf(secondCollection);
+		column[SUBSET_OTHER] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.equals(firstCollection);
+		column[EQUALS_THIS] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.equals(secondCollection);
+		column[EQUALS_OTHER] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.unionWith(secondCollection);
+		column[UNION] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.intersectWith(secondCollection);
+		column[INTERSECTION] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		firstCollection.difference(secondCollection);
+		column[DIFFERENCE_FIRST_SECOND] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		secondCollection.difference(firstCollection);
+		column[DIFFERENCE_SECOND_FIRST] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		secondCollection.symmetricDifference(firstCollection);
+		column[SYMMETRIC_DIFFERENCE] = (std::chrono::high_resolution_clock::now() - start).count();
+		table[type] = column;
 	}
 			
 
 //¬ычисление времени дл€ структуры
-static void calculateTime(
-	std::map <CollectionTypes, std::map<std::string, int>>& table, CollectionTypes type,
+void Functions::calculateTime(
+	std::map<CollectionTypes, std::map<Operations, int>>& table, CollectionTypes type,
 	Node* firstCollection, Node* secondCollection) {
+		std::map<Operations, int> column;
+		auto start = std::chrono::high_resolution_clock::now();
+		Node* local = newSet();
+		column[CREATE] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		size(firstCollection);
+		column[SIZE_SET] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		isSubsetOf(firstCollection, firstCollection);
+		column[SUBSET_THIS] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		isSubsetOf(firstCollection, secondCollection);
+		column[SUBSET_OTHER] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		equals(firstCollection, firstCollection);
+		column[EQUALS_THIS] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		equals(firstCollection, secondCollection);
+		column[EQUALS_OTHER] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		unionOf(firstCollection, secondCollection);
+		column[UNION] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		intersectOf(firstCollection, secondCollection);
+		column[INTERSECTION] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		differenceOf(firstCollection, secondCollection);
+		column[DIFFERENCE_FIRST_SECOND] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		differenceOf(secondCollection, firstCollection);
+		column[DIFFERENCE_SECOND_FIRST] = (std::chrono::high_resolution_clock::now() - start).count();
+		start = std::chrono::high_resolution_clock::now();
+		symmetricDifference(firstCollection, secondCollection);
+		column[SYMMETRIC_DIFFERENCE] = (std::chrono::high_resolution_clock::now() - start).count();
+		table[type] = column;
+}
+
+ void Functions::printTable(int firstCnt, int secondCnt)
+{
 
 }

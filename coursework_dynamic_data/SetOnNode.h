@@ -30,6 +30,6 @@ Node* unionOf(Node* A, Node* B);
 
 Node* intersectOf(Node* A, Node* B);
 
-Node* diefferenceOf(Node* A, Node* B);
+Node* differenceOf(Node* A, Node* B);
 
 Node* symmetricDifference(Node* A, Node* B);

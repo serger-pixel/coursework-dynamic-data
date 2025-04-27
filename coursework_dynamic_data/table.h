@@ -3,10 +3,11 @@
 #include<iostream>
 #include <iomanip>
 #include <windows.h>
+#include "Functions.h"
 
 enum Operations {
 	CREATE,
-	SIZE,
+	SIZE_SET,
 	SUBSET_THIS,
 	SUBSET_OTHER,
 	EQUALS_THIS,
@@ -23,12 +24,12 @@ class table {
 public:
 	const int WIDTH_LINE = 180;
 
-	void printRow(Operations operation,
-		const std::string& singleLinkedList,
-		const std::string& classList,
-		const std::string& vector,
-		const std::string& list,
-		const std::string& unorderedSet,
-		const std::string& prioritySet);
-	void drawHorizontalLine(int width);
+	static void printRow(Operations operation,
+		const int singleLinkedList,
+		const int classList,
+		const int vector,
+		const int list,
+		const int unorderedSet,
+		const int prioritySet);
+	static void drawHorizontalLine(int width);
 };

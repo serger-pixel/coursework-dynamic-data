@@ -23,13 +23,14 @@ class Functions {
 public:
 	template <typename T>
 	static void calculateTime(
-		std::map<CollectionTypes, std::map<Operations, std::string>>& table, CollectionTypes type,
+		std::map<CollectionTypes, std::map<Operations, int>>& table, CollectionTypes type,
 		T firstCollection, T secondCollection);
 
 	static void calculateTime(
-		std::map < std::string, std::map<std::string, int>>& table, CollectionTypes type,
+		std::map<CollectionTypes, std::map<Operations, int>>& table, CollectionTypes type,
 		Node* firstCollection, Node* secondCollection);
 
+	static void printTable(int firstCnt, int secondCnt);
 };
 
 
